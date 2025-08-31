@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Management - Placement Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-graduation-cap"></i> InfoPlacement Portal</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="students.html"><i class="fas fa-users"></i> Students</a></li>
+                    <li><a href="companies.html" class="active"><i class="fas fa-building"></i> Companies</a></li>
+                    <li><a href="placements.html"><i class="fas fa-briefcase"></i> Placements</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="page-header">
+                <h2>Company Management</h2>
+                <p>Manage 10+ partner companies and distribute student data</p>
+                <button class="btn btn-primary" onclick="toggleCompanyForm()">
+                    <i class="fas fa-plus"></i> Add New Company
+                </button>
+            </section>
+
+            <!-- Company Form -->
+            <section class="form-section" id="company-form" style="display: none;">
+                <div class="form-container">
+                    <h3>Add/Edit Company Information</h3>
+                    <form id="companyForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="companyId">Company ID *</label>
+                                <input type="text" id="companyId" name="companyId" required>
+                                <span class="validation-message" id="companyId-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="companyName">Company Name *</label>
+                                <input type="text" id="companyName" name="companyName" required>
+                                <span class="validation-message" id="companyName-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="industry">Industry *</label>
+                                <select id="industry" name="industry" required>
+                                    <option value="">Select Industry</option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Healthcare">Healthcare</option>
+                                    <option value="Manufacturing">Manufacturing</option>
+                                    <option value="Consulting">Consulting</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <span class="validation-message" id="industry-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="location">Location *</label>
+                                <input type="text" id="location" name="location" required>
+                                <span class="validation-message" id="location-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hrName">HR Contact Name *</label>
+                                <input type="text" id="hrName" name="hrName" required>
+                                <span class="validation-message" id="hrName-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hrEmail">HR Email *</label>
+                                <input type="email" id="hrEmail" name="hrEmail" required>
+                                <span class="validation-message" id="hrEmail-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="hrPhone">HR Phone *</label>
+                                <input type="tel" id="hrPhone" name="hrPhone" required>
+                                <span class="validation-message" id="hrPhone-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="website">Company Website</label>
+                                <input type="url" id="website" name="website">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="packageOffered">Package Offered (LPA) *</label>
+                                <input type="number" id="packageOffered" name="packageOffered" step="0.1" min="0" required>
+                                <span class="validation-message" id="packageOffered-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="positions">Available Positions *</label>
+                                <input type="number" id="positions" name="positions" min="1" required>
+                                <span class="validation-message" id="positions-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="eligibleDepartments">Eligible Departments *</label>
+                                <select id="eligibleDepartments" name="eligibleDepartments" multiple required>
+                                    <option value="Computer Science">Computer Science</option>
+                                    <option value="Information Technology">Information Technology</option>
+                                    <option value="Electronics">Electronics Engineering</option>
+                                    <option value="Mechanical">Mechanical Engineering</option>
+                                    <option value="Civil">Civil Engineering</option>
+                                </select>
+                                <small>Hold Ctrl/Cmd to select multiple departments</small>
+                                <span class="validation-message" id="eligibleDepartments-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="minCgpa">Minimum CGPA Required *</label>
+                                <input type="number" id="minCgpa" name="minCgpa" step="0.01" min="0" max="10" required>
+                                <span class="validation-message" id="minCgpa-error"></span>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="jobDescription">Job Description *</label>
+                                <textarea id="jobDescription" name="jobDescription" rows="4" required></textarea>
+                                <span class="validation-message" id="jobDescription-error"></span>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="requirements">Requirements & Skills</label>
+                                <textarea id="requirements" name="requirements" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="resetCompanyForm()">Reset</button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Company
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Company List -->
+            <section class="data-section">
+                <div class="table-header">
+                    <h3>Partner Companies</h3>
+                    <div class="table-actions">
+                        <button class="btn btn-success" onclick="distributeStudentData()">
+                            <i class="fas fa-share"></i> Distribute Student Data
+                        </button>
+                        <button class="btn btn-info" onclick="exportCompanyData()">
+                            <i class="fas fa-download"></i> Export Company Data
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table" id="companiesTable">
+                        <thead>
+                            <tr>
+                                <th>Company ID</th>
+                                <th>Company Name</th>
+                                <th>Industry</th>
+                                <th>Package (LPA)</th>
+                                <th>Positions</th>
+                                <th>Min CGPA</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="companiesTableBody">
+                            <!-- Sample company data -->
+                            <tr>
+                                <td>COMP-001</td>
+                                <td>TechCorp Solutions</td>
+                                <td>Technology</td>
+                                <td>12.0</td>
+                                <td>25</td>
+                                <td>7.0</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <button class="btn-icon" onclick="editCompany('COMP-001')" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" onclick="viewCompany('COMP-001')" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon btn-success" onclick="sendStudentData('COMP-001')" title="Send Data">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>COMP-002</td>
+                                <td>Global Finance Corp</td>
+                                <td>Finance</td>
+                                <td>15.5</td>
+                                <td>15</td>
+                                <td>8.0</td>
+                                <td><span class="status-badge status-active">Active</span></td>
+                                <td>
+                                    <button class="btn-icon" onclick="editCompany('COMP-002')" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" onclick="viewCompany('COMP-002')" title="View">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon btn-success" onclick="sendStudentData('COMP-002')" title="Send Data">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Data Distribution Stats -->
+            <section class="distribution-stats">
+                <h3>Data Distribution Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-paper-plane"></i>
+                        <h4>Data Sent Today</h4>
+                        <p id="dataSentToday">150 students</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-building"></i>
+                        <h4>Companies Contacted</h4>
+                        <p id="companiesContacted">8 companies</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Processing Time Saved</h4>
+                        <p id="timeSaved">85% reduction</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 InfoPlacement Portal. Student Data Management System.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/validation.js"></script>
+</body>
+</html>

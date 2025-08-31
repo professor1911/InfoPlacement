@@ -1,0 +1,271 @@
+{
+  "students": [
+    {
+      "studentId": "CS-2023-001",
+      "fullName": "John Doe",
+      "email": "john.doe@college.edu",
+      "phone": "+91-9876543210",
+      "department": "Computer Science",
+      "year": "2023",
+      "cgpa": 8.5,
+      "skills": "JavaScript, React, Node.js, MongoDB",
+      "status": "Active",
+      "dateAdded": "2023-07-15"
+    },
+    {
+      "studentId": "IT-2023-002",
+      "fullName": "Jane Smith",
+      "email": "jane.smith@college.edu",
+      "phone": "+91-9876543211",
+      "department": "Information Technology",
+      "year": "2023",
+      "cgpa": 9.2,
+      "skills": "Python, Django, SQL, Machine Learning",
+      "status": "Active",
+      "dateAdded": "2023-07-16"
+    },
+    {
+      "studentId": "CS-2023-003",
+      "fullName": "Mike Johnson",
+      "email": "mike.johnson@college.edu",
+      "phone": "+91-9876543212",
+      "department": "Computer Science",
+      "year": "2023",
+      "cgpa": 7.8,
+      "skills": "HTML, CSS, JavaScript, Angular",
+      "status": "Active",
+      "dateAdded": "2023-07-17"
+    },
+    {
+      "studentId": "EC-2023-004",
+      "fullName": "Sarah Wilson",
+      "email": "sarah.wilson@college.edu",
+      "phone": "+91-9876543213",
+      "department": "Electronics",
+      "year": "2023",
+      "cgpa": 8.9,
+      "skills": "C++, VHDL, MATLAB, Embedded Systems",
+      "status": "Active",
+      "dateAdded": "2023-07-18"
+    },
+    {
+      "studentId": "ME-2023-005",
+      "fullName": "Robert Lee",
+      "email": "robert.lee@college.edu",
+      "phone": "+91-9876543214",
+      "department": "Mechanical",
+      "year": "2023",
+      "cgpa": 8.1,
+      "skills": "AutoCAD, SolidWorks, ANSYS, Project Management",
+      "status": "Active",
+      "dateAdded": "2023-07-19"
+    }
+  ],
+  "companies": [
+    {
+      "companyId": "COMP-001",
+      "companyName": "TechCorp Solutions",
+      "industry": "Technology",
+      "location": "Bangalore, India",
+      "hrName": "Priya Sharma",
+      "hrEmail": "priya.sharma@techcorp.com",
+      "hrPhone": "+91-8765432109",
+      "website": "https://techcorp.com",
+      "packageOffered": 12.0,
+      "positions": 25,
+      "eligibleDepartments": ["Computer Science", "Information Technology"],
+      "minCgpa": 7.0,
+      "jobDescription": "Full-stack software development role with opportunities to work on cutting-edge technologies.",
+      "requirements": "Strong programming skills in JavaScript, React, Node.js",
+      "status": "Active"
+    },
+    {
+      "companyId": "COMP-002",
+      "companyName": "Global Finance Corp",
+      "industry": "Finance",
+      "location": "Mumbai, India",
+      "hrName": "Amit Patel",
+      "hrEmail": "amit.patel@globalfinance.com",
+      "hrPhone": "+91-8765432108",
+      "website": "https://globalfinance.com",
+      "packageOffered": 15.5,
+      "positions": 15,
+      "eligibleDepartments": ["Computer Science", "Information Technology"],
+      "minCgpa": 8.0,
+      "jobDescription": "Data analyst role focusing on financial data processing and analytics.",
+      "requirements": "Strong analytical skills, Python, SQL, Excel",
+      "status": "Active"
+    },
+    {
+      "companyId": "COMP-003",
+      "companyName": "InnovateX Ltd",
+      "industry": "Technology",
+      "location": "Pune, India",
+      "hrName": "Sneha Reddy",
+      "hrEmail": "sneha.reddy@innovatex.com",
+      "hrPhone": "+91-8765432107",
+      "website": "https://innovatex.com",
+      "packageOffered": 10.0,
+      "positions": 20,
+      "eligibleDepartments": ["Computer Science", "Information Technology", "Electronics"],
+      "minCgpa": 6.5,
+      "jobDescription": "Frontend developer role with focus on user experience and interface design.",
+      "requirements": "HTML, CSS, JavaScript, React, UI/UX skills",
+      "status": "Active"
+    },
+    {
+      "companyId": "COMP-004",
+      "companyName": "DataTech Inc",
+      "industry": "Technology",
+      "location": "Hyderabad, India",
+      "hrName": "Rajesh Kumar",
+      "hrEmail": "rajesh.kumar@datatech.com",
+      "hrPhone": "+91-8765432106",
+      "website": "https://datatech.com",
+      "packageOffered": 13.5,
+      "positions": 18,
+      "eligibleDepartments": ["Computer Science", "Information Technology"],
+      "minCgpa": 7.5,
+      "jobDescription": "Data engineer role working with big data technologies and cloud platforms.",
+      "requirements": "Python, Spark, Hadoop, AWS/Azure experience",
+      "status": "Active"
+    },
+    {
+      "companyId": "COMP-005",
+      "companyName": "AutoSys Manufacturing",
+      "industry": "Manufacturing",
+      "location": "Chennai, India",
+      "hrName": "Kavitha Nair",
+      "hrEmail": "kavitha.nair@autosys.com",
+      "hrPhone": "+91-8765432105",
+      "website": "https://autosys.com",
+      "packageOffered": 8.5,
+      "positions": 12,
+      "eligibleDepartments": ["Mechanical", "Electronics"],
+      "minCgpa": 6.0,
+      "jobDescription": "Automation engineer role in manufacturing processes and system design.",
+      "requirements": "PLC programming, automation systems, mechanical design",
+      "status": "Active"
+    }
+  ],
+  "placements": [
+    {
+      "placementId": "PL-001",
+      "studentId": "CS-2023-001",
+      "companyId": "COMP-001",
+      "position": "Software Engineer",
+      "applicationDate": "2023-07-15",
+      "status": "Selected",
+      "packageOffered": 12.0,
+      "interviewDate": "2023-07-25",
+      "notes": "Excellent technical interview performance"
+    },
+    {
+      "placementId": "PL-002",
+      "studentId": "IT-2023-002",
+      "companyId": "COMP-002",
+      "position": "Data Analyst",
+      "applicationDate": "2023-07-20",
+      "status": "Offer Letter",
+      "packageOffered": 15.5,
+      "interviewDate": "2023-07-28",
+      "notes": "Strong analytical skills demonstrated"
+    },
+    {
+      "placementId": "PL-003",
+      "studentId": "CS-2023-003",
+      "companyId": "COMP-003",
+      "position": "Frontend Developer",
+      "applicationDate": "2023-08-01",
+      "status": "Interview Scheduled",
+      "packageOffered": 10.0,
+      "interviewDate": "2023-08-10",
+      "notes": "Interview scheduled for next week"
+    },
+    {
+      "placementId": "PL-004",
+      "studentId": "EC-2023-004",
+      "companyId": "COMP-004",
+      "position": "Data Engineer",
+      "applicationDate": "2023-08-02",
+      "status": "Shortlisted",
+      "packageOffered": 13.5,
+      "interviewDate": null,
+      "notes": "Resume shortlisted, awaiting interview call"
+    },
+    {
+      "placementId": "PL-005",
+      "studentId": "ME-2023-005",
+      "companyId": "COMP-005",
+      "position": "Automation Engineer",
+      "applicationDate": "2023-08-03",
+      "status": "Applied",
+      "packageOffered": 8.5,
+      "interviewDate": null,
+      "notes": "Application submitted, under review"
+    }
+  ],
+  "activities": [
+    {
+      "type": "student_added",
+      "id": "CS-2023-001",
+      "description": "New student registered: John Doe (CS-2023-001)",
+      "timestamp": "2023-07-15T10:30:00Z",
+      "user": "Admin"
+    },
+    {
+      "type": "company_added",
+      "id": "COMP-001",
+      "description": "Company added: TechCorp Solutions",
+      "timestamp": "2023-07-14T14:20:00Z",
+      "user": "Admin"
+    },
+    {
+      "type": "data_distributed",
+      "id": "COMP-001",
+      "description": "Student data distributed to TechCorp Solutions (25 students)",
+      "timestamp": "2023-07-16T09:15:00Z",
+      "user": "System"
+    },
+    {
+      "type": "placement_updated",
+      "id": "PL-001",
+      "description": "Placement status updated: John Doe selected at TechCorp",
+      "timestamp": "2023-07-25T16:45:00Z",
+      "user": "HR Team"
+    },
+    {
+      "type": "file_uploaded",
+      "id": "bulk_import",
+      "description": "Bulk import completed: 50 student records added",
+      "timestamp": "2023-07-10T11:00:00Z",
+      "user": "Admin"
+    }
+  ],
+  "statistics": {
+    "totalStudents": 500,
+    "totalCompanies": 10,
+    "totalPlacements": 425,
+    "placementRate": 85,
+    "departmentStats": {
+      "Computer Science": { "students": 180, "placed": 162, "rate": 90 },
+      "Information Technology": { "students": 150, "placed": 127, "rate": 85 },
+      "Electronics": { "students": 100, "placed": 75, "rate": 75 },
+      "Mechanical": { "students": 70, "placed": 56, "rate": 80 }
+    },
+    "companyStats": {
+      "COMP-001": { "name": "TechCorp Solutions", "hired": 45 },
+      "COMP-002": { "name": "Global Finance Corp", "hired": 32 },
+      "COMP-003": { "name": "InnovateX Ltd", "hired": 28 },
+      "COMP-004": { "name": "DataTech Inc", "hired": 25 },
+      "COMP-005": { "name": "AutoSys Manufacturing", "hired": 18 }
+    }
+  },
+  "configuration": {
+    "lastUpdated": "2023-08-31T07:38:00Z",
+    "version": "1.0.0",
+    "dataSource": "google_sheets",
+    "autoDistribution": true,
+    "processingReduction": "85%"
+  }
+}

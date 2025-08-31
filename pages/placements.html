@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Tracking - Placement Portal</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1><i class="fas fa-graduation-cap"></i> InfoPlacement Portal</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="../index.html"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="students.html"><i class="fas fa-users"></i> Students</a></li>
+                    <li><a href="companies.html"><i class="fas fa-building"></i> Companies</a></li>
+                    <li><a href="placements.html" class="active"><i class="fas fa-briefcase"></i> Placements</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="page-header">
+                <h2>Placement Tracking</h2>
+                <p>Monitor and manage student-company placements</p>
+                <button class="btn btn-primary" onclick="togglePlacementForm()">
+                    <i class="fas fa-plus"></i> Record New Placement
+                </button>
+            </section>
+
+            <!-- Placement Statistics -->
+            <section class="placement-stats">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h4>Total Applications</h4>
+                        <p id="totalApplications">1,250</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Successful Placements</h4>
+                        <p id="successfulPlacements">425</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-clock"></i>
+                        <h4>Pending Applications</h4>
+                        <p id="pendingApplications">180</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Placement Rate</h4>
+                        <p id="placementRate">85%</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Placement Form -->
+            <section class="form-section" id="placement-form" style="display: none;">
+                <div class="form-container">
+                    <h3>Record New Placement</h3>
+                    <form id="placementForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="placementId">Placement ID *</label>
+                                <input type="text" id="placementId" name="placementId" required readonly>
+                                <span class="validation-message" id="placementId-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="studentSelect">Select Student *</label>
+                                <select id="studentSelect" name="studentId" required>
+                                    <option value="">Choose Student</option>
+                                    <option value="CS-2023-001">John Doe (CS-2023-001)</option>
+                                    <option value="IT-2023-002">Jane Smith (IT-2023-002)</option>
+                                    <option value="CS-2023-003">Mike Johnson (CS-2023-003)</option>
+                                </select>
+                                <span class="validation-message" id="studentSelect-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="companySelect">Select Company *</label>
+                                <select id="companySelect" name="companyId" required>
+                                    <option value="">Choose Company</option>
+                                    <option value="COMP-001">TechCorp Solutions</option>
+                                    <option value="COMP-002">Global Finance Corp</option>
+                                    <option value="COMP-003">InnovateX Ltd</option>
+                                </select>
+                                <span class="validation-message" id="companySelect-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="position">Position *</label>
+                                <input type="text" id="position" name="position" required>
+                                <span class="validation-message" id="position-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="applicationDate">Application Date *</label>
+                                <input type="date" id="applicationDate" name="applicationDate" required>
+                                <span class="validation-message" id="applicationDate-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="status">Status *</label>
+                                <select id="status" name="status" required>
+                                    <option value="">Select Status</option>
+                                    <option value="Applied">Applied</option>
+                                    <option value="Shortlisted">Shortlisted</option>
+                                    <option value="Interview Scheduled">Interview Scheduled</option>
+                                    <option value="Interview Completed">Interview Completed</option>
+                                    <option value="Selected">Selected</option>
+                                    <option value="Rejected">Rejected</option>
+                                    <option value="Offer Letter">Offer Letter</option>
+                                    <option value="Joined">Joined</option>
+                                </select>
+                                <span class="validation-message" id="status-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="packageOffered">Package Offered (LPA)</label>
+                                <input type="number" id="packageOffered" name="packageOffered" step="0.1" min="0">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="interviewDate">Interview Date</label>
+                                <input type="date" id="interviewDate" name="interviewDate">
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="notes">Notes</label>
+                                <textarea id="notes" name="notes" rows="3" placeholder="Additional notes about the placement..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="resetPlacementForm()">Reset</button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Placement
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Filter Section -->
+            <section class="search-section">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="placementSearch" placeholder="Search placements by student, company, or position...">
+                    </div>
+                    <div class="filter-controls">
+                        <select id="statusFilter">
+                            <option value="">All Statuses</option>
+                            <option value="Applied">Applied</option>
+                            <option value="Shortlisted">Shortlisted</option>
+                            <option value="Interview Scheduled">Interview Scheduled</option>
+                            <option value="Selected">Selected</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Joined">Joined</option>
+                        </select>
+                        <select id="companyFilter">
+                            <option value="">All Companies</option>
+                            <option value="COMP-001">TechCorp Solutions</option>
+                            <option value="COMP-002">Global Finance Corp</option>
+                            <option value="COMP-003">InnovateX Ltd</option>
+                        </select>
+                        <button class="btn btn-secondary" onclick="clearPlacementFilters()">Clear Filters</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Placements Table -->
+            <section class="data-section">
+                <div class="table-header">
+                    <h3>Placement Records</h3>
+                    <div class="table-actions">
+                        <button class="btn btn-success" onclick="generatePlacementReport()">
+                            <i class="fas fa-file-pdf"></i> Generate Report
+                        </button>
+                        <button class="btn btn-info" onclick="syncWithGoogleSheets()">
+                            <i class="fas fa-sync"></i> Sync with Google Sheets
+                        </button>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table" id="placementsTable">
+                        <thead>
+                            <tr>
+                                <th>Placement ID</th>
+                                <th>Student Name</th>
+                                <th>Student ID</th>
+                                <th>Company</th>
+                                <th>Position</th>
+                                <th>Package (LPA)</th>
+                                <th>Status</th>
+                                <th>Application Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="placementsTableBody">
+                            <!-- Sample placement data -->
+                            <tr>
+                                <td>PL-001</td>
+                                <td>John Doe</td>
+                                <td>CS-2023-001</td>
+                                <td>TechCorp Solutions</td>
+                                <td>Software Engineer</td>
+                                <td>12.0</td>
+                                <td><span class="status-badge status-selected">Selected</span></td>
+                                <td>2023-07-15</td>
+                                <td>
+                                    <button class="btn-icon" onclick="editPlacement('PL-001')" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" onclick="viewPlacement('PL-001')" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon btn-success" onclick="updateStatus('PL-001')" title="Update Status">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PL-002</td>
+                                <td>Jane Smith</td>
+                                <td>IT-2023-002</td>
+                                <td>Global Finance Corp</td>
+                                <td>Data Analyst</td>
+                                <td>15.5</td>
+                                <td><span class="status-badge status-offer">Offer Letter</span></td>
+                                <td>2023-07-20</td>
+                                <td>
+                                    <button class="btn-icon" onclick="editPlacement('PL-002')" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" onclick="viewPlacement('PL-002')" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon btn-success" onclick="updateStatus('PL-002')" title="Update Status">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>PL-003</td>
+                                <td>Mike Johnson</td>
+                                <td>CS-2023-003</td>
+                                <td>InnovateX Ltd</td>
+                                <td>Frontend Developer</td>
+                                <td>10.0</td>
+                                <td><span class="status-badge status-interview">Interview Scheduled</span></td>
+                                <td>2023-08-01</td>
+                                <td>
+                                    <button class="btn-icon" onclick="editPlacement('PL-003')" title="Edit">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn-icon" onclick="viewPlacement('PL-003')" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                    <button class="btn-icon btn-success" onclick="updateStatus('PL-003')" title="Update Status">
+                                        <i class="fas fa-check"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Quick Status Update Panel -->
+            <section class="quick-update-panel">
+                <h3>Quick Status Updates</h3>
+                <div class="update-grid">
+                    <div class="update-card">
+                        <h4>Interviews Today</h4>
+                        <div class="interview-list" id="todayInterviews">
+                            <div class="interview-item">
+                                <span>Mike Johnson - InnovateX Ltd</span>
+                                <span class="time">2:00 PM</span>
+                            </div>
+                            <div class="interview-item">
+                                <span>Sarah Wilson - DataTech Inc</span>
+                                <span class="time">4:30 PM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="update-card">
+                        <h4>Recent Selections</h4>
+                        <div class="selection-list" id="recentSelections">
+                            <div class="selection-item">
+                                <span>John Doe → TechCorp Solutions</span>
+                                <span class="package">₹12.0 LPA</span>
+                            </div>
+                            <div class="selection-item">
+                                <span>Alice Brown → Microsoft</span>
+                                <span class="package">₹25.0 LPA</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="update-card">
+                        <h4>Pending Actions</h4>
+                        <div class="action-list" id="pendingActions">
+                            <div class="action-item">
+                                <span>Send offer letter - Jane Smith</span>
+                                <button class="btn-small btn-primary">Complete</button>
+                            </div>
+                            <div class="action-item">
+                                <span>Schedule interview - Robert Lee</span>
+                                <button class="btn-small btn-primary">Complete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Placement Form -->
+            <section class="form-section" id="placement-form" style="display: none;">
+                <div class="form-container">
+                    <h3>Record New Placement</h3>
+                    <form id="placementForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="placementId">Placement ID *</label>
+                                <input type="text" id="placementId" name="placementId" required readonly>
+                                <span class="validation-message" id="placementId-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="studentSelectNew">Select Student *</label>
+                                <select id="studentSelectNew" name="studentId" required>
+                                    <option value="">Choose Student</option>
+                                    <!-- Will be populated dynamically -->
+                                </select>
+                                <span class="validation-message" id="studentSelectNew-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="companySelectNew">Select Company *</label>
+                                <select id="companySelectNew" name="companyId" required>
+                                    <option value="">Choose Company</option>
+                                    <!-- Will be populated dynamically -->
+                                </select>
+                                <span class="validation-message" id="companySelectNew-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="positionNew">Position *</label>
+                                <input type="text" id="positionNew" name="position" required>
+                                <span class="validation-message" id="positionNew-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="applicationDateNew">Application Date *</label>
+                                <input type="date" id="applicationDateNew" name="applicationDate" required>
+                                <span class="validation-message" id="applicationDateNew-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="statusNew">Status *</label>
+                                <select id="statusNew" name="status" required>
+                                    <option value="">Select Status</option>
+                                    <option value="Applied">Applied</option>
+                                    <option value="Shortlisted">Shortlisted</option>
+                                    <option value="Interview Scheduled">Interview Scheduled</option>
+                                    <option value="Interview Completed">Interview Completed</option>
+                                    <option value="Selected">Selected</option>
+                                    <option value="Rejected">Rejected</option>
+                                    <option value="Offer Letter">Offer Letter</option>
+                                    <option value="Joined">Joined</option>
+                                </select>
+                                <span class="validation-message" id="statusNew-error"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="packageOfferedNew">Package Offered (LPA)</label>
+                                <input type="number" id="packageOfferedNew" name="packageOffered" step="0.1" min="0">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="interviewDateNew">Interview Date</label>
+                                <input type="date" id="interviewDateNew" name="interviewDate">
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="notesNew">Notes</label>
+                                <textarea id="notesNew" name="notes" rows="3" placeholder="Additional notes about the placement..."></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="resetPlacementForm()">Reset</button>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Save Placement
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section class="analytics-section">
+                <h3>Placement Analytics</h3>
+                <div class="analytics-grid">
+                    <div class="chart-container">
+                        <h4>Department-wise Placement Rate</h4>
+                        <div class="chart-placeholder">
+                            <div class="chart-bar">
+                                <span class="bar-label">Computer Science</span>
+                                <div class="bar">
+                                    <div class="bar-fill" style="width: 90%;">90%</div>
+                                </div>
+                            </div>
+                            <div class="chart-bar">
+                                <span class="bar-label">Information Technology</span>
+                                <div class="bar">
+                                    <div class="bar-fill" style="width: 85%;">85%</div>
+                                </div>
+                            </div>
+                            <div class="chart-bar">
+                                <span class="bar-label">Electronics</span>
+                                <div class="bar">
+                                    <div class="bar-fill" style="width: 75%;">75%</div>
+                                </div>
+                            </div>
+                            <div class="chart-bar">
+                                <span class="bar-label">Mechanical</span>
+                                <div class="bar">
+                                    <div class="bar-fill" style="width: 80%;">80%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <h4>Top Recruiting Companies</h4>
+                        <div class="company-ranking">
+                            <div class="rank-item">
+                                <span class="rank">1</span>
+                                <span class="company">TechCorp Solutions</span>
+                                <span class="count">45 hires</span>
+                            </div>
+                            <div class="rank-item">
+                                <span class="rank">2</span>
+                                <span class="company">Global Finance Corp</span>
+                                <span class="count">32 hires</span>
+                            </div>
+                            <div class="rank-item">
+                                <span class="rank">3</span>
+                                <span class="company">InnovateX Ltd</span>
+                                <span class="count">28 hires</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 InfoPlacement Portal. Student Data Management System.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/validation.js"></script>
+</body>
+</html>
