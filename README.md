@@ -1,7 +1,5 @@
 # Student Data Management System - InfoPlacement Portal
 
-**Full-Stack Web Application** | **Jul'23-Aug'23**
-
 A comprehensive placement portal developed with JavaScript and Google Sheets integration for efficient student data management and placement operations.
 
 ## 🚀 Project Overview
@@ -396,3 +394,4 @@ This project showcases:
 **© 2023 InfoPlacement Portal - Student Data Management System**
 
 *This project demonstrates practical application of web development technologies for real-world placement management scenarios, highlighting skills in JavaScript development, API integration, and responsive web design.*
+
